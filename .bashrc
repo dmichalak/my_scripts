@@ -1,12 +1,6 @@
-# .bashrc
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
 EDITOR=vim
 
 export CLICOLOR=1
-
 
 BLACK="\[\e[0;30m\]"
 DARK_GRAY="\[\e[1;30m\]"
@@ -27,9 +21,15 @@ LIGHT_GRAY="\[\e[0;37m\]"
 WHITE="\[\e[1;37m\]"
 
 export PS1="$LIGHT_GRAY\t$LIGHT_GRAY-$GREEN@$LIGHT_GRAY\h $LIGHT_BLUE->/\W/$YELLOW \$ $LIGHT_GRAY"
-#export PS1="\[\033[37m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[32m\]@\[\033[0;33m\]\h\[\033[m\]->/\W\[\033[m\] \$\[\033[m\] "
+export PATH=$PATH:/opt/relion/build/bin:/opt/dynamo/matlab/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu/libstdc++.so.6:/opt/dynamo/MCRLinux/runtime/glnxa64:/opt/dynamo/MCRLinux/bin/glnxa64:/opt/dynamo/MCRLinux/sys/os/glnxa64:/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 
-# User specific aliases and functions
+export MCR_CACHE_ROOT=/home/michalakdj/local/mcr_cache
+
+
+#####################################################
+######## User specific aliases and functions ########
+#####################################################
 alias ls='ls -GFh --color --group-directories-first'
 alias rm='rm -i'
 alias cp='cp -i'
@@ -49,3 +49,18 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/michalakdj/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/michalakdj/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/michalakdj/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/michalakdj/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
