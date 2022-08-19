@@ -21,9 +21,10 @@ LIGHT_GRAY="\[\e[0;37m\]"
 WHITE="\[\e[1;37m\]"
 
 export PS1="$LIGHT_GRAY\t$LIGHT_GRAY-$GREEN@$LIGHT_GRAY\h $LIGHT_BLUE->/\W/$YELLOW \$ $LIGHT_GRAY"
-export PATH=$PATH:/opt/relion/build/bin:/opt/dynamo/matlab/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu/libstdc++.so.6:/opt/dynamo/MCRLinux/runtime/glnxa64:/opt/dynamo/MCRLinux/bin/glnxa64:/opt/dynamo/MCRLinux/sys/os/glnxa64:/usr/lib/x86_64-linux-gnu/libstdc++.so.6
-
+export PATH=/usr/local/cuda-11.7/bin:/opt/relion/build/bin:/opt/dynamo/matlab/bin:/home/michalakdj/local/repos/IsoNet/bin:/home/michalakdj/.local/UCSF-Chimera64-1.16/bin:/home/michalakdj/.cargo/bin:$PATH
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/libstdc++.so.6:/usr/local/cuda-11.7/lib64:$LD_LIBRARY_PATH #:/opt/dynamo/MCRLinux/runtime/glnxa64:/opt/dynamo/MCRLinux/bin/glnxa64:/opt/dynamo/MCRLinux/sys/os/glnxa64:/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+export PYTHONPATH=/home/michalakdj/local/repos/:$PYTHONPATH
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export MCR_CACHE_ROOT=/home/michalakdj/local/mcr_cache
 
 
@@ -50,6 +51,8 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
 
+alias sdynamo='source ${DYNAMO_ROOT}/dynamo_activate_linux_shipped_MCR.sh'
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/michalakdj/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -64,3 +67,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+set_title() {
+	echo -ne "\033]0;${1}\007";
+}
+alias title=set_title

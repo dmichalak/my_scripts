@@ -48,3 +48,12 @@ call plug#end()
 
 let g:python3_host_prog = expand('~/miniconda3/bin/python')
 
+" Add numbers to each line on the left-hand side
+set number
+
+" Highlight cursor line underneath the cursor horizontally
+set cursorline
+
+" Set the commands to save in history default number is 20.
+set history=1000
+
