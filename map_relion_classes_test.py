@@ -4,11 +4,16 @@ import pandas as pd
 import numpy as np
 from contextlib import contextmanager
 
-
+############
 data_star = Path("./run_it025_data.star")
-classJobNames = Path().absolute().glob("K*rand500")
+classJobNames = Path().absolute().glob("K*ref1")
 
 useRELION4 = 1
+############
+
+
+
+
 
 column_labels_relion3 = [
     "CoordinateX", #1 
